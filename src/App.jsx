@@ -1,5 +1,13 @@
+import { Header } from './components/Header'
+import { Movies } from './components/Movies'
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <Header />
+      <Movies />
+    </>
+  )
 }
 
-export default App;
+export default App
