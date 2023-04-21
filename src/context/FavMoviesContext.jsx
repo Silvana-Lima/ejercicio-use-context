@@ -9,21 +9,28 @@ export const FavMoviesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState(initialFavorites)
   const [error, setError] = useState(false)
 
-  const handleFavorites = (id) => {
+  const addFavorites = (id) => {
     const newMovie = movies.find((movie) => movie.id === id)
-
-    if (favorites.includes(newMovie)) {
-      setError(true)
-    } else {
+    setError(false)
+    if (!favorites.includes(newMovie)) {
       const newFavorite = [...favorites, newMovie]
-      setError(false)
       setFavorites(newFavorite)
       setLocalStorage('favorites', newFavorite)
+    } else {
+      setError(true)
     }
   }
 
+  const removeFavorites = (id) => {
+    const newFavorites = favorites.filter((favorite) => favorite.id !== id)
+    setFavorites(newFavorites)
+    setLocalStorage('favorites', newFavorites)
+  }
+
   return (
-    <FavMoviesContext.Provider value={{ handleFavorites, favorites, error }}>
+    <FavMoviesContext.Provider
+      value={{ addFavorites, favorites, error, removeFavorites }}
+    >
       {children}
     </FavMoviesContext.Provider>
   )
