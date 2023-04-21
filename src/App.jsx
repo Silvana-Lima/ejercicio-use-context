@@ -10,9 +10,9 @@ function App() {
   return (
     <>
       <Header />
+      <ShowFavMovies />
       <Movies />
       {error && <ErrorMovieDuplicate />}
-      <ShowFavMovies />
     </>
   )
 }

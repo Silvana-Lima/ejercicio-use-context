@@ -27,9 +27,20 @@ export const FavMoviesProvider = ({ children }) => {
     setLocalStorage('favorites', newFavorites)
   }
 
+  const emptyFavorites = () => {
+    setFavorites([])
+    setLocalStorage('favorites', [])
+  }
+
   return (
     <FavMoviesContext.Provider
-      value={{ addFavorites, favorites, error, removeFavorites }}
+      value={{
+        addFavorites,
+        favorites,
+        error,
+        removeFavorites,
+        emptyFavorites,
+      }}
     >
       {children}
     </FavMoviesContext.Provider>

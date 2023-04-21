@@ -6,7 +6,7 @@ export const Header = () => {
       as={'h1'}
       textAlign={'center'}
       p={10}
-      bg={'blackAlpha.800'}
+      bg={'black'}
       color={'whiteAlpha.900'}
     >
       My favorites movies
