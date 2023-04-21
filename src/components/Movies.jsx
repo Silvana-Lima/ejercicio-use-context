@@ -11,8 +11,12 @@ import {
 } from '@chakra-ui/react'
 import { StarIcon } from '@chakra-ui/icons'
 import { movies } from '../../utils/movies'
+import { useContext } from 'react'
+import { FavMoviesContext } from '../context/favMoviesContext'
 
 export const Movies = () => {
+  const { handleFavorites } = useContext(FavMoviesContext)
+
   return (
     <HStack justifyContent={'center'}>
       {movies.map((movie) => (
@@ -38,6 +42,7 @@ export const Movies = () => {
               bg={'blackAlpha.800'}
               color={'whiteAlpha.900'}
               id={movie.id}
+              onClick={() => handleFavorites(movie.id)}
             >
               Add favorite
             </Button>
