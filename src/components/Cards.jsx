@@ -14,7 +14,7 @@ export const Cards = ({ movie, functionOnClick, text }) => {
   const { id, img, name } = movie
 
   return (
-    <Card maxW="sm" key={id}>
+    <Card maxW="s" key={id}>
       <CardBody>
         <Image
           src={img}
@@ -31,10 +31,8 @@ export const Cards = ({ movie, functionOnClick, text }) => {
       <CardFooter>
         <Button
           leftIcon={<StarIcon />}
-          colorScheme="teal"
-          variant="solid"
-          bg={'blackAlpha.800'}
-          color={'whiteAlpha.900'}
+          colorScheme="blue"
+          variant="outline"
           id={id}
           onClick={() => functionOnClick(id)}
         >

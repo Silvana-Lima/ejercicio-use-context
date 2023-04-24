@@ -4,5 +4,9 @@ import { UserValidationContext } from '../context/UserValidationContext'
 
 export const ButtonLogout = () => {
   const { handleUserLogout } = useContext(UserValidationContext)
-  return <Button onClick={handleUserLogout}>Logout</Button>
+  return (
+    <Button onClick={handleUserLogout} colorScheme="blue" variant="outline">
+      Logout
+    </Button>
+  )
 }

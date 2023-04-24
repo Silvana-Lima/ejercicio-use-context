@@ -6,8 +6,9 @@ import {
   DrawerContent,
   Button,
   useDisclosure,
-  HStack,
   DrawerFooter,
+  Stack,
+  Box,
 } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { FavMoviesContext } from '../context/favMoviesContext'
@@ -20,17 +21,17 @@ export const ShowFavMovies = () => {
 
   return (
     <>
-      <Button colorScheme="gray" onClick={onOpen} width={'200px'}>
+      <Button colorScheme="blue" onClick={onOpen} width={'200px'}>
         See Favorites
       </Button>
 
-      <Drawer placement="bottom" onClose={onClose} isOpen={isOpen} size={'lg'}>
+      <Drawer placement="right" onClose={onClose} isOpen={isOpen} size={'xs'}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerHeader borderBottomWidth="1px">Favorites Movies</DrawerHeader>
           <DrawerBody>
             {!favorites.length && <p>You haven't added favorite movies yet</p>}
-            <HStack h={'500px'}>
+            <Stack gap={5}>
               {favorites &&
                 favorites.map((favorite) => (
                   <Cards
@@ -40,7 +41,7 @@ export const ShowFavMovies = () => {
                     functionOnClick={removeFavorites}
                   />
                 ))}
-            </HStack>
+            </Stack>
           </DrawerBody>
           <DrawerFooter borderTopWidth="1px">
             <Button variant="outline" mr={3} onClick={onClose}>

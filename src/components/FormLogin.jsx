@@ -21,7 +21,7 @@ export const FormLogin = () => {
   const { handleUserLogin } = useContext(UserValidationContext)
 
   return (
-    <VStack p={5}>
+    <VStack pt={'150px'}>
       <form onSubmit={handleSubmit(handleUserLogin)}>
         <SimpleGrid gap={5}>
           <FormControl isInvalid={errors.email}>
@@ -56,13 +56,11 @@ export const FormLogin = () => {
             />
             <FormErrorMessage>{errors.password?.message} </FormErrorMessage>
           </FormControl>
-          <Button type="submit" colorScheme="blue">
+          <Button type="submit" colorScheme="blue" isDisabled={!isDirty}>
             Login
           </Button>
         </SimpleGrid>
       </form>
     </VStack>
-
-    //isDisabled={!isDirty}
   )
 }
