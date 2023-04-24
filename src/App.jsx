@@ -4,13 +4,17 @@ import { Movies } from './components/Movies'
 import { ShowFavMovies } from './components/ShowFavMovies'
 import { FavMoviesContext } from './context/favMoviesContext'
 import { ErrorMovieDuplicate } from './components/ErrorMovieDuplicate'
+import { FormLogin } from './components/FormLogin'
+import { UserValidationContext } from './context/UserValidationContext'
 
 function App() {
   const { error } = useContext(FavMoviesContext)
+  const { userLogin } = useContext(UserValidationContext)
   return (
     <>
       <Header />
-      <ShowFavMovies />
+      <FormLogin />
+      {userLogin && <ShowFavMovies />}
       <Movies />
       {error && <ErrorMovieDuplicate />}
     </>

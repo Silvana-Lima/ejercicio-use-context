@@ -30,3 +30,17 @@ export const movies = [
 - Deben poder prevenir que el usuario agregue las peliculas si ya estaban en la lista previamente.
 - En Lista de favoritos, cada pelicula debe tener un boton de quitar de la lista.
 - Ademas debe haber un boton de vaciar la lista, que la limpiara completa.
+
+# Parte II
+
+- Crea un contexto para manejar la autenticación en una aplicación.
+- El contexto debe tener un estado para el usuario autenticado.
+- un método para iniciar sesión
+- otro método para cerrar sesión.
+
+# Parte III
+
+- Crea un contexto para manejar el idioma de una aplicación.
+- El contexto debe tener un estado para el idioma actual.
+- Un objeto con las opciones de idioma disponibles y un método para actualizar el idioma actual.
+- Además, cada componente que consuma el contexto debe mostrar su contenido en el idioma seleccionado.
