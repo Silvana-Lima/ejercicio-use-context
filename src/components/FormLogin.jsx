@@ -5,6 +5,7 @@ import {
   Input,
   Button,
   SimpleGrid,
+  VStack,
 } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
@@ -20,7 +21,7 @@ export const FormLogin = () => {
   const { handleUserLogin } = useContext(UserValidationContext)
 
   return (
-    <>
+    <VStack p={5}>
       <form onSubmit={handleSubmit(handleUserLogin)}>
         <SimpleGrid gap={5}>
           <FormControl isInvalid={errors.email}>
@@ -60,7 +61,7 @@ export const FormLogin = () => {
           </Button>
         </SimpleGrid>
       </form>
-    </>
+    </VStack>
 
     //isDisabled={!isDirty}
   )

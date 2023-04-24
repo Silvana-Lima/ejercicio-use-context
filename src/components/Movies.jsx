@@ -1,4 +1,4 @@
-import { HStack } from '@chakra-ui/react'
+import { HStack, Heading } from '@chakra-ui/react'
 import { movies } from '../../utils/movies'
 import { useContext } from 'react'
 import { FavMoviesContext } from '../context/favMoviesContext'
@@ -8,7 +8,7 @@ export const Movies = () => {
   const { addFavorites } = useContext(FavMoviesContext)
 
   return (
-    <HStack justifyContent={'center'}>
+    <HStack justifyContent={'center'} p={5}>
       {movies.map((movie) => (
         <Cards
           key={movie.id}

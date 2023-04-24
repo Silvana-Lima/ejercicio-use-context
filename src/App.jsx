@@ -6,6 +6,8 @@ import { FavMoviesContext } from './context/favMoviesContext'
 import { ErrorMovieDuplicate } from './components/ErrorMovieDuplicate'
 import { FormLogin } from './components/FormLogin'
 import { UserValidationContext } from './context/UserValidationContext'
+import { ButtonLogout } from './components/ButtonLogout'
+import { HStack } from '@chakra-ui/react'
 
 function App() {
   const { error } = useContext(FavMoviesContext)
@@ -13,8 +15,14 @@ function App() {
   return (
     <>
       <Header />
-      <FormLogin />
-      {userLogin && <ShowFavMovies />}
+      {!userLogin && <FormLogin />}
+      {userLogin && (
+        <HStack>
+          <ShowFavMovies />
+          <ButtonLogout />
+        </HStack>
+      )}
+
       <Movies />
       {error && <ErrorMovieDuplicate />}
     </>

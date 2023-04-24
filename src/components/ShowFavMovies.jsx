@@ -20,11 +20,9 @@ export const ShowFavMovies = () => {
 
   return (
     <>
-      <HStack justifyContent={'end'} bg={'blackAlpha.900'} p={3}>
-        <Button colorScheme="gray" onClick={onOpen} width={'200px'}>
-          See Favorites
-        </Button>
-      </HStack>
+      <Button colorScheme="gray" onClick={onOpen} width={'200px'}>
+        See Favorites
+      </Button>
 
       <Drawer placement="bottom" onClose={onClose} isOpen={isOpen} size={'lg'}>
         <DrawerOverlay />
