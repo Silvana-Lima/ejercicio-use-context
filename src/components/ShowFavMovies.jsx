@@ -8,10 +8,9 @@ import {
   useDisclosure,
   DrawerFooter,
   Stack,
-  Box,
 } from '@chakra-ui/react'
 import { useContext } from 'react'
-import { FavMoviesContext } from '../context/favMoviesContext'
+import { FavMoviesContext } from '../context/FavMoviesContext'
 import { Cards } from './Cards'
 
 export const ShowFavMovies = () => {
@@ -30,7 +29,7 @@ export const ShowFavMovies = () => {
         <DrawerContent>
           <DrawerHeader borderBottomWidth="1px">Favorites Movies</DrawerHeader>
           <DrawerBody>
-            {!favorites.length && <p>You haven't added favorite movies yet</p>}
+            {!favorites.length && <p>No favorites</p>}
             <Stack gap={5}>
               {favorites &&
                 favorites.map((favorite) => (

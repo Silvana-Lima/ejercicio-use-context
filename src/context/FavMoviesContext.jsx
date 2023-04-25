@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react'
-import { movies } from '../../utils/movies'
 import { getLocalStorage, setLocalStorage } from '../../utils/localStorage'
 
 export const FavMoviesContext = createContext()
@@ -9,20 +8,21 @@ export const FavMoviesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState(initialFavorites)
   const [error, setError] = useState(false)
 
-  const addFavorites = (id) => {
-    const newMovie = movies.find((movie) => movie.id === id)
+  const addFavorites = (movie) => {
+    const newMovieFav = favorites.some((favorite) => favorite.id === movie.id)
     setError(false)
-    if (!favorites.includes(newMovie)) {
-      const newFavorite = [...favorites, newMovie]
-      setFavorites(newFavorite)
-      setLocalStorage('favorites', newFavorite)
+    if (!newMovieFav) {
+      setFavorites([...favorites, movie])
+      setLocalStorage('favorites', [...favorites, movie])
     } else {
       setError(true)
     }
   }
 
-  const removeFavorites = (id) => {
-    const newFavorites = favorites.filter((favorite) => favorite.id !== id)
+  const removeFavorites = (movie) => {
+    const newFavorites = favorites.filter(
+      (favorite) => favorite.id !== movie.id
+    )
     setFavorites(newFavorites)
     setLocalStorage('favorites', newFavorites)
   }

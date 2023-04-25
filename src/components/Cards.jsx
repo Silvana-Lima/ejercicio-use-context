@@ -34,7 +34,7 @@ export const Cards = ({ movie, functionOnClick, text }) => {
           colorScheme="blue"
           variant="outline"
           id={id}
-          onClick={() => functionOnClick(id)}
+          onClick={() => functionOnClick(movie)}
         >
           {text}
         </Button>

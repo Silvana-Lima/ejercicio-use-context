@@ -11,8 +11,8 @@ export const movies = [
   },
   {
     id: 3,
-    img: 'https://pics.filmaffinity.com/Sense8_Amor_Vincit_Omnia_TV-568282917-large.jpg',
-    name: 'Sense 8',
+    img: 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2022/10/super-mario-bros-pelicula-2837511.jpg?itok=5mchgp9z',
+    name: 'Mario Bross',
   },
   {
     id: 4,
