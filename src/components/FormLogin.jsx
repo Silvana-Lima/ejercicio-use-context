@@ -18,7 +18,11 @@ export const FormLogin = () => {
     formState: { errors, isDirty },
   } = useForm()
 
-  const { handleUserLogin } = useContext(UserValidationContext)
+  const { login } = useContext(UserValidationContext)
+
+  const handleUserLogin = (data) => {
+    login(data)
+  }
 
   return (
     <VStack pt={'150px'}>

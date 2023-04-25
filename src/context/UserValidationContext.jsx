@@ -3,22 +3,18 @@ import { createContext, useState } from 'react'
 export const UserValidationContext = createContext()
 
 export const UserValidationProvider = ({ children }) => {
-  const [userLogin, setUserLogin] = useState(false)
+  const [userLogin, setUserLogin] = useState(null)
 
-  const handleUserLogin = () => {
-    setUserLogin(true)
-    console.log('hay usuario')
+  const login = (data) => {
+    setUserLogin(data)
   }
 
-  const handleUserLogout = () => {
-    setUserLogin(false)
-    console.log('usuario cerro sesion')
+  const logout = () => {
+    setUserLogin(null)
   }
 
   return (
-    <UserValidationContext.Provider
-      value={{ userLogin, handleUserLogin, handleUserLogout }}
-    >
+    <UserValidationContext.Provider value={{ userLogin, login, logout }}>
       {children}
     </UserValidationContext.Provider>
   )
