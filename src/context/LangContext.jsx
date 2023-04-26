@@ -12,6 +12,7 @@ const languajes = {
     h3: 'Películas favoritas',
     clear: 'Limpiar',
     close: 'cerrar',
+    languajes: 'Idioma',
   },
   en: {
     h1: 'My favorites movies',
@@ -22,6 +23,7 @@ const languajes = {
     h3: 'Favorites Movies',
     clear: 'Clear',
     close: 'Close',
+    languajes: 'Languajes',
   },
 }
 
