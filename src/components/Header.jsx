@@ -1,4 +1,4 @@
-import { Heading } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import { SelectLang } from './SelectLang'
 import { useContext } from 'react'
 import { LangContext } from '../context/LangContext'
@@ -17,7 +17,9 @@ export const Header = () => {
       >
         {t('h1')}
       </Heading>
-      <SelectLang />
+      <Box bg={'black'}>
+        <SelectLang />
+      </Box>
     </header>
   )
 }

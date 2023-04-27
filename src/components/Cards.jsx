@@ -9,16 +9,19 @@ import {
   Image,
   Stack,
 } from '@chakra-ui/react'
+import { useContext } from 'react'
+import { LangContext } from '../context/LangContext'
 
 export const Cards = ({ movie, functionOnClick, text }) => {
   const { id, img, name } = movie
+  const { t } = useContext(LangContext)
 
   return (
     <Card maxW="s" key={id}>
       <CardBody>
         <Image
           src={img}
-          alt={`Image of de movie: ${name}`}
+          alt={`${t('alt')} : ${name}`}
           borderRadius="lg"
           w={'200'}
           h={'300'}
