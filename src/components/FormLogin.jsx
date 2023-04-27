@@ -10,6 +10,7 @@ import {
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { UserValidationContext } from '../context/UserValidationContext'
+import { LangContext } from '../context/LangContext'
 
 export const FormLogin = () => {
   const {
@@ -24,12 +25,14 @@ export const FormLogin = () => {
     login(data)
   }
 
+  const { t } = useContext(LangContext)
+
   return (
     <VStack pt={'150px'}>
       <form onSubmit={handleSubmit(handleUserLogin)}>
         <SimpleGrid gap={5}>
           <FormControl isInvalid={errors.email}>
-            <FormLabel htmlFor="email">Email</FormLabel>
+            <FormLabel htmlFor="email">{t('email')}</FormLabel>
             <Input
               type="email"
               id="email"
@@ -45,7 +48,7 @@ export const FormLogin = () => {
             <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
           </FormControl>
           <FormControl isInvalid={errors.password}>
-            <FormLabel htmlFor="email">Password</FormLabel>
+            <FormLabel htmlFor="email">{t('password')}</FormLabel>
             <Input
               type="password"
               id="password"
@@ -61,7 +64,7 @@ export const FormLogin = () => {
             <FormErrorMessage>{errors.password?.message} </FormErrorMessage>
           </FormControl>
           <Button type="submit" colorScheme="blue" isDisabled={!isDirty}>
-            Login
+            {t('login')}
           </Button>
         </SimpleGrid>
       </form>
