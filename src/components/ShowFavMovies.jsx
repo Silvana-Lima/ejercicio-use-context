@@ -8,29 +8,30 @@ import {
   useDisclosure,
   DrawerFooter,
   Stack,
-  Box,
 } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { FavMoviesContext } from '../context/favMoviesContext'
 import { Cards } from './Cards'
+import { LangContext } from '../context/LangContext'
 
 export const ShowFavMovies = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { favorites, removeFavorites, emptyFavorites } =
     useContext(FavMoviesContext)
+  const { t } = useContext(LangContext)
 
   return (
     <>
       <Button colorScheme="blue" onClick={onOpen} width={'200px'}>
-        See Favorites
+        {t('seeFavorites')}
       </Button>
 
       <Drawer placement="right" onClose={onClose} isOpen={isOpen} size={'xs'}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerHeader borderBottomWidth="1px">Favorites Movies</DrawerHeader>
+          <DrawerHeader borderBottomWidth="1px">{t('h3')}</DrawerHeader>
           <DrawerBody>
-            {!favorites.length && <p>You haven't added favorite movies yet</p>}
+            {!favorites.length && <p>{t('noFavorites')}</p>}
             <Stack gap={5}>
               {favorites &&
                 favorites.map((favorite) => (
@@ -45,10 +46,10 @@ export const ShowFavMovies = () => {
           </DrawerBody>
           <DrawerFooter borderTopWidth="1px">
             <Button variant="outline" mr={3} onClick={onClose}>
-              close
+              {t('close')}
             </Button>
             <Button colorScheme="red" onClick={emptyFavorites}>
-              Empty favorites
+              {t('clear')}
             </Button>
           </DrawerFooter>
         </DrawerContent>

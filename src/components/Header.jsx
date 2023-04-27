@@ -1,7 +1,11 @@
 import { Heading } from '@chakra-ui/react'
 import { SelectLang } from './SelectLang'
+import { useContext } from 'react'
+import { LangContext } from '../context/LangContext'
 
 export const Header = () => {
+  const { t } = useContext(LangContext)
+
   return (
     <header>
       <Heading
@@ -11,7 +15,7 @@ export const Header = () => {
         bg={'black'}
         color={'whiteAlpha.900'}
       >
-        My favorites movies
+        {t('h1')}
       </Heading>
       <SelectLang />
     </header>
